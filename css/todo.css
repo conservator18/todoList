@@ -1,0 +1,89 @@
+.todolist .item i {
+  margin-right: 1rem;
+}
+.todolist .item i:nth-child(2) {
+  color: #c0c4cc;
+}
+.todolist .item .delete {
+  display: inline-block;
+  float: right;
+}
+.todolist .item .edit {
+  display: inline-block;
+  float: right;
+}
+.todolist .item .edit i {
+  font-size: 0.8em;
+}
+.hide {
+  display: none;
+}
+.over {
+  display: inline-block;
+  text-decoration: line-through;
+  color: #c0c4cc;
+}
+.add {
+  position: fixed;
+  right: 10px;
+  bottom: 10px;
+  width: 10vw;
+  height: 10vw;
+  background: rgba(255, 255, 255, 0);
+  text-align: center;
+  line-height: 10vw;
+  border-radius: 50%;
+  border: 0.15rem solid rgba(255, 255, 255, 0.7);
+}
+.add i {
+  font-size: 2rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+.fade {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.3);
+  display: none;
+}
+.show {
+  display: block;
+}
+.wrap {
+  width: 70vw;
+  height: 50vh;
+  background: #fff;
+  box-shadow: 1px 1px 10px #c0c4cc;
+  border-radius: 2px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  text-align: center;
+  padding: 10px 0;
+  box-sizing: border-box;
+  transform: scale(0, 0);
+}
+.coverAnimation {
+  animation: name 1s both;
+}
+@keyframes name {
+  from {
+    transform: scale(0, 0);
+  }
+  to {
+    transform: scale(1, 1);
+  }
+}
+.wrap input {
+  border: 1px solid #c0c4cc;
+  height: 32px;
+  width: 80%;
+  border-radius: 16px;
+  outline: none;
+  padding: 0 10px;
+}

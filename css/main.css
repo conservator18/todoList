@@ -1,0 +1,90 @@
+body,
+p {
+  margin: 0;
+  padding: 0;
+}
+.main {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+}
+.main .bg_pic {
+  width: 100%;
+  position: absolute;
+  z-index: -1;
+  opacity: 0.3;
+}
+iframe[name=head] {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+.sort {
+  width: 50%;
+  position: absolute;
+  top: -14vh;
+  left: 0;
+  right: 0;
+  margin: auto;
+  z-index: 2;
+  background: #fff;
+  border-radius: 2px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.126);
+}
+.sort p {
+  text-align: center;
+  padding: 0.2rem 0;
+  border-bottom: 1px solid #E0E0E0;
+}
+.sort p:last-child {
+  border: none;
+}
+.showAnimation {
+  animation: show 1s both;
+}
+.hideAnimation {
+  animation: hide 1s both;
+}
+@keyframes show {
+  from {
+    top: -14vh;
+  }
+  to {
+    top: 4vh;
+  }
+}
+@keyframes hide {
+  from {
+    top: 4vh;
+  }
+  to {
+    top: -14vh;
+  }
+}
+.contentbox {
+  width: 100%;
+  height: 87%;
+  position: absolute;
+  top: 5%;
+  left: 0;
+  z-index: 1;
+  overflow: hidden;
+}
+iframe[name=foot] {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+}
+.dim {
+  position: absolute;
+  bottom: 0;
+  height: 8%;
+  width: 100%;
+  backdrop-filter: blur(10px);
+  -moz-backdrop-filter: blur(10px);
+  border-radius: 10px 10px 0 0;
+  box-shadow: 0 0.3px 0.7px rgba(0, 0, 0, 0.126), 0 0.9px 1.7px rgba(0, 0, 0, 0.179), 0 1.8px 3.5px rgba(0, 0, 0, 0.224), 0 3.7px 7.3px rgba(0, 0, 0, 0.277), 0 10px 20px rgba(0, 0, 0, 0.4);
+}

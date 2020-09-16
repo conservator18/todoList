@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/stylesheet.css" />
+    <style>
+      /* 底部菜单开始 */
+      html {
+        width: 100%;
+        height: 100%;
+      }
+      body,
+      p {
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        width: 100%;
+        height: 100%;
+      }
+      .footer {
+        display: flex;
+        display: -webkit-box; /* Chrome 4+, Safari 3.1, iOS Safari 3.2+ */
+        display: -moz-box; /* Firefox 17- */
+        display: -webkit-flex; /* Chrome 21+, Safari 6.1+, iOS Safari 7+, Opera 15/16 */
+        display: -moz-flex; /* Firefox 18+ */
+        display: -ms-flexbox; /* IE 10 */
+        display: flex; /* Chrome 29+, Firefox 22+, IE 11+, Opera 12.1/17/18, Android 4.4+ */
+      }
+      .footer .item {
+        flex: 1;
+        text-align: center;
+        padding-top: 0.5rem;
+      }
+      .footer .item i {
+        display: none;
+      }
+      .show {
+        display: block !important;
+      }
+      .footer .item span {
+        font-size: 0.5rem;
+      }
+      /* 底部菜单结束 */
+    </style>
+  </head>
+  <body>
+    <div class="footer" id="foot">
+      <div class="item">
+        <i class="iconfont">&#xe61a;</i>
+        <i class="iconfont show">&#xe64a;</i>
+        <span>事项</span>
+      </div>
+      <div class="item">
+        <i class="iconfont show">&#xe62d;</i>
+        <i class="iconfont">&#xe62f;</i>
+        <span>我的</span>
+      </div>
+    </div>
+  </body>
+  <script>
+    if (window.performance.navigation.type == 1) {
+      console.log("footer页面被刷新");
+    } else {
+      console.log("footer页面被首次加载");
+    }
+    // 中间区域往左滑
+    function goLeft() {
+      var contenthtml = parent.document
+        .querySelector("[name=content]")
+        .contentDocument.querySelector("html");
+      var timer = setInterval(function () {
+        contenthtml.scrollLeft = contenthtml.scrollLeft + 3;
+        if (contenthtml.scrollLeft >= window.screen.width) {
+          clearInterval(timer);
+        }
+      }, 1);
+    }
+    // 中间区域往右滑
+    function goRight() {
+      var contenthtml = parent.document
+        .querySelector("[name=content]")
+        .contentDocument.querySelector("html");
+      var timer = setInterval(function () {
+        contenthtml.scrollLeft = contenthtml.scrollLeft - 3;
+        if (contenthtml.scrollLeft <= 0) {
+          clearInterval(timer);
+        }
+      }, 1);
+    }
+    // 选择菜单
+    document.querySelector(".footer").addEventListener("click", function (e) {
+      var evt = e || window.event;
+      var target = evt.target;
+      if (
+        target &&
+        (target.classList.contains("iconfont") ||
+          target.classList.contains("item") ||
+          target.nodeName == "SPAN")
+      ) {
+        var content = parent.document.querySelector("[name=content]");
+        var childhtml = content.contentDocument.querySelector("html");
+        if (
+          target.classList.contains("iconfont") ||
+          target.nodeName == "SPAN"
+        ) {
+          if (target.parentElement.children[1].classList.contains("show")) {
+            // 切换中间区域显示内容
+            childhtml.scrollLeft <= window.screen.width / 2
+              ? goRight()
+              : goLeft();
+            return;
+          } else {
+            // 又回到最初的起点
+            target.parentElement.parentElement.children[0].children[0].classList.add(
+              "show"
+            );
+            target.parentElement.parentElement.children[0].children[1].classList.remove(
+              "show"
+            );
+            target.parentElement.parentElement.children[1].children[0].classList.add(
+              "show"
+            );
+            target.parentElement.parentElement.children[1].children[1].classList.remove(
+              "show"
+            );
+            // 切换图标
+            target.parentElement.children[1].classList.add("show");
+            target.parentElement.children[0].classList.remove("show");
+            // 切换中间区域显示内容
+            childhtml.scrollLeft <= window.screen.width / 2
+              ? goLeft()
+              : goRight();
+          }
+        } else if (target.classList.contains("item")) {
+          if (target.children[1].classList.contains("show")) {
+            // 切换中间区域显示内容
+            childhtml.scrollLeft <= window.screen.width / 2
+              ? goRight()
+              : goLeft();
+            return;
+          } else {
+            target.parentElement.children[0].children[0].classList.add("show");
+            target.parentElement.children[0].children[1].classList.remove(
+              "show"
+            );
+            target.parentElement.children[1].children[0].classList.add("show");
+            target.parentElement.children[1].children[1].classList.remove(
+              "show"
+            );
+            target.children[1].classList.add("show");
+            target.children[0].classList.remove("show");
+            // 切换中间区域显示内容
+            childhtml.scrollLeft <= window.screen.width / 2
+              ? goLeft()
+              : goRight();
+          }
+        }
+      }
+    });
+  </script>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Document</title>
+    <style>
+      html {
+        width: 100%;
+        height: 100%;
+      }
+      /* 清单开始 */
+      body {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        position: relative;
+        left: 0;
+        top: 0;
+      }
+      .toleft {
+        left: -50%;
+      }
+      .content {
+        width: 200%;
+        height: 100%;
+      }
+      iframe[name=todo] {
+        float: left;
+      }
+      iframe[name=my] {
+        float: left;
+      }
+      /* 清单结束 */
+    </style>
+  </head>
+  <body class="contentbody">
+    <div class="content">
+      <iframe name="todo" src="todo.html" frameborder="0" width="50%" height="100%"></iframe>
+      <iframe name="my" src="my.html" frameborder="0" width="50%" height="100%"></iframe>
+    </div>
+  </body>
+  <script src="./js/content.js"></script>
+  <script>
+      if(window.performance.navigation.type == 1) {
+          console.log("content页面被刷新");
+      } else {
+          console.log("content页面被首次加载");
+      }
+  </script>
+</html>

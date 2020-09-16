@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/stylesheet.css" />
+    <link rel="stylesheet" href="./css/todo.css" />
+  </head>
+  <body>
+    <div class="todo">
+      <div class="todolist">
+        <!-- <p class="item"><i class="iconfont2">&#xe61d;</i><i class="iconfont1 hide">&#xe61e;</i><span class="text">一条数据</span></p>
+            <p class="item"><i class="iconfont2">&#xe61d;</i><i class="iconfont1 hide">&#xe61e;</i><span class="text">一条数据</span></p> -->
+      </div>
+      <div class="add">
+        <i class="iconfont">&#xe61b;</i>
+      </div>
+      <div class="fade">
+        <div class="wrap">
+          <input type="text" placeholder="把事情记录下来~" />
+        </div>
+      </div>
+    </div>
+  </body>
+  <script src="./js/todo.js"></script>
+  <script>
+    if (window.performance.navigation.type == 1) {
+      console.log("todo页面被刷新");
+    } else {
+      console.log("todo页面被首次加载");
+    }
+  </script>
+</html>

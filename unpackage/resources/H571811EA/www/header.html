@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      /* 头部开始 */
+      body,
+      p {
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        width: 100%;
+      }
+      .header {
+        width: 100%;
+        color: #000;
+        margin-top: 0.1rem;
+      }
+      .header .center {
+        text-align: center;
+      }
+      .header .center p {
+        display: inline-block;
+      }
+      .header .center span {
+        display: inline-block;
+        transform: rotate(-90deg);
+        width: 1em;
+        height: 1em;
+        text-align: center;
+        line-height: 1em;
+        transition: 1s;
+        font-family: "黑体";
+        font-weight: bold;
+      }
+      .totop {
+        transform: rotate(90deg) !important;
+      }
+      /* 头部结束 */
+    </style>
+  </head>
+  <body>
+    <div class="header">
+      <div class="left"></div>
+      <div class="center">
+        <p>事项</p>
+        <span>&lt;</span>
+      </div>
+      <div class="right"></div>
+    </div>
+  </body>
+  <script>
+    if (window.performance.navigation.type == 1) {
+      console.log("header页面被刷新");
+    } else {
+      console.log("header页面被首次加载");
+    }
+    function hideSort() {
+      parent.document.querySelector(".sort").classList.remove("showAnimation");
+      parent.document.querySelector(".sort").classList.add("hideAnimation");
+    }
+    function showSort() {
+      parent.document.querySelector(".sort").classList.add("showAnimation");
+      parent.document.querySelector(".sort").classList.remove("hideAnimation");
+    }
+    document
+      .querySelector(".header .center")
+      .addEventListener("click", function () {
+        var dom = document.querySelector(".header .center span");
+        dom.classList.contains("totop")
+          ? dom.classList.remove("totop")
+          : dom.classList.add("totop");
+          parent.document.querySelector(".sort").classList.contains("showAnimation") ? hideSort() : showSort();
+      });
+  </script>
+</html>
